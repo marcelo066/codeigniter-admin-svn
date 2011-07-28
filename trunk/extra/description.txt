@@ -1,0 +1,5 @@
+<<<#Panorama:::File name:::Panorama Name:::Panorama Address:::centerHeading:::Arrows(degree::label::panorama link)>>>
+<<<6:::1.jpeg:::Pano1 Import New:::Pan Adr1:::278:::(14.5::Lable Import link1::http://topmedellin.com/panosrc/?panorama_sel=23)(167::Lable Import link2::7)>>>
+<<<22:::2.jpeg:::Pano2 Import New:::Pan Adr2:::78.5:::(80::Lable Import link1::http://topmedellin.com/panosrc/?panorama_sel=38)(167::Lable Import link2::6)>>>
+<<<9:::3.jpeg:::Pano3 Import New:::Pan Adr3:::25:::(92::Lable Import link1::22)>>>
+<<<7:::4.jpeg:::Pano4 Import New:::Pan Adr4:::89.1:::>>>

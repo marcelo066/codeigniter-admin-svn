@@ -8,16 +8,27 @@ class Panorama extends CI_Controller {
 		$this->load->helper('url');
         $this->load->database();
 		$this->load->model('Pano_model');
-
+		$this->load->model('Login_model');
 		set_time_limit(0);
-
 		ini_set('memory_limit', '120M');
 
-	
     }
 
 	public function index()
 	{
+
+
+		if($this->input->is_ajax_request() === false)
+		{
+			if ($this->Login_model->is_user() == false)
+			{
+				$this->load->library('session');
+				$data = array();
+				$this->session->set_userdata('rdirect', $this->uri->uri_string());
+				$this->load->view('login',$data);
+				return;
+			}
+		}
 
 	
 		$select_array = $this->Pano_model->get_pano_array();
@@ -127,7 +138,19 @@ class Panorama extends CI_Controller {
         public function select()
         {
                 
-                
+		if($this->input->is_ajax_request() === false)
+		{
+			if ($this->Login_model->is_user() == false)
+			{
+				$this->load->library('session');
+				$data = array();
+				$this->session->set_userdata('rdirect', $this->uri->uri_string());
+				$this->load->view('login',$data);
+				return;
+			}
+		}
+
+	
                 $data = array();
 
 		if (!isset($_POST['panorama_sel']))

@@ -8,11 +8,26 @@ class Overlay extends CI_Controller {
 		$this->load->helper('url');
         $this->load->database();
 		$this->load->model('Pano_model');
+		$this->load->model('Login_model');
     }
 
 	public function index()
 	{
 	//Chrome
+
+	if($this->input->is_ajax_request() === false)
+		{
+			if ($this->Login_model->is_user() == false)
+			{
+				$this->load->library('session');
+				$data = array();
+				$this->session->set_userdata('rdirect', $this->uri->uri_string());
+				$this->load->view('login',$data);
+				return;
+			}
+		}
+
+
 		$data = array();
 
 		$this->load->view('overlay',$data);

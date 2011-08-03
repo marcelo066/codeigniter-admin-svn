@@ -2,7 +2,7 @@
 <html style="width: 100%; height: 100%;">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Panorama Links page</title>
+        <title>Topmedellin.com</title>
         <script type="text/javascript" src="<?=base_url()?>application/views/js/jquery-1.5.2.min.js"></script>
 	<link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css" />
         <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>

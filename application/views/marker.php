@@ -5,7 +5,36 @@
         <title>Topmedellin.com</title>
         <script type="text/javascript" src="<?=base_url()?>application/views/js/jquery-1.5.2.min.js"></script>
 	<link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css" />
-        <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+    <style>
+		#instr{
+		height: 133px;
+		width: 359px;
+		margin:auto;
+		display: inherit;
+		position:absolute;
+		top:3%;
+		right:3%;
+		z-index: 1500;
+		background-image: url(<?=base_url()?>application/views/img/message.jpg);
+		border: 2px solid #10a3d4;
+		-moz-border-radius: 13px; /* Firefox */
+		-webkit-border-radius: 13px; /* Safari, Chrome */
+		-khtml-border-radius: 13px; /* KHTML */
+		border-radius: 13px; /* CSS3 */
+		behavior: url(/application/views/css/border-radius.htc); /* учим IE border-radius */
+		color: #30424e;
+		font: bold 12px Arial;
+		}
+
+		#home{
+		position:absolute;
+		top: 51px;
+		left: 98px;
+		z-index: 1500;
+}
+}
+	</style>
+	<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
 	<script type="text/javascript">
 
  
@@ -290,7 +319,8 @@
         </script>
     </head>
 <body style="width:100%; height: 100%; overflow: hidden; background-color: #4E6CA3">
-	<div id="instr" style="height: 25%; width: 25%; margin:auto; display: inherit; position:absolute; top:3%; right:3%; z-index: 1500; background-color: #DADCFF; border: 1px solid #0063DC "><span class="instr"><? echo $instructions ?></span></div>
+	<div id="instr"><span class="instr"><?// echo $instructions ?></span></div>
+	<div id="home"><a href="http://topmedellin.com/"><img src="<?=base_url()?>application/views/img/iconhome.gif" alt="HOME" title="Home"></a></div>
 	<div id="main_div" style="width: 100%; height: 100%; overflow: hidden;" >
 	<div id="pan1" style="width: 100%; height: 100%; z-index: 10;"></div>
 	</div>

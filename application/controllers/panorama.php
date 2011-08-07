@@ -1069,7 +1069,7 @@ class Panorama extends CI_Controller {
 					$filename = $filename.$result[0];
 
 
-					if(copy($_FILES['uploadfile']['tmp_name'][$key],"base_url()uploads/markers/".$filename))
+					if(copy($_FILES['uploadfile']['tmp_name'][$key],"uploads/markers/".$filename))
 						{
 
 

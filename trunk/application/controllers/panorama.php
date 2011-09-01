@@ -766,14 +766,17 @@ class Panorama extends CI_Controller {
 	{
 
 	$content = @file_get_contents("extra/description.txt") OR DIE("Not Found extra/description.txt ".'<br/> <a href="'.base_url().'index.php/panorama">'."return to adminpage");
-
-	$count = preg_match_all( "/<<<(.*?):::(.+):::(.*?):::(.*?):::(.*?):::(.*?)>>>/", $content,$result);
+	//								1		2		3		4		5		6		7		8
+	// 
+	//<<<#Panorama:::File name:::Panorama Name:::Panorama Address:::centerHeading:::Arrows(degree::label::panorama link):::KML Phomo name:::Line name>>>
+	$count = preg_match_all( "/<<<(.*?):::(.+):::(.*?):::(.*?):::(.*?):::(.*?):::(.*?):::(.*?)>>>/", $content,$result);
 
 	$count_insert = 0;
 
 	$new_id = array();
 
 //	return;
+
 
 	foreach ($result[2] as $key => $value)
 	{
@@ -850,17 +853,66 @@ class Panorama extends CI_Controller {
 			}
 	}
 
+	
+	$points=@simplexml_load_file("extra/description.KML");
+	$lines =array();
+	if($points !== false)
+	{
 
-	/*
-	       $data = array(
-           'panorama_id_to_link' =>  mysql_real_escape_string($_POST['panorama_sel_link']) ,
-           'panorama_id' =>  mysql_real_escape_string($_POST['panorama_id']) ,
-           'title' =>  mysql_real_escape_string($_POST['title']),
-           'heading' => mysql_real_escape_string($_POST['heading'])
-            );
+		// 7  - KLM name
+		foreach ($result[7] as $key => $value)
+		{
 
-          $this->db->insert('links', $data);
-	*/
+			 foreach ($points->Document->Folder->Placemark as $valueplace)
+			 {
+			 if ($valueplace->name == $value)
+			 {
+				   if ($result[8][$key] != '') // t.e Line have name
+				   {
+					$lines[$result[8][$key]]['coordinates'][] = (string)$valueplace->Point->coordinates;
+					// Add link to panorama id
+					$lines[$result[8][$key]]['panorams_id'][] = $new_id[$result[1][$key]];
+				   }
+			 }
+			}
+
+		}
+
+		foreach ($lines as $key => $value)
+		{
+			$data = array(
+			'link' => '',
+			'line_color' => 'b82cb8' ,
+			'fill_color' =>  'b82cb8' ,
+			'info' => '',
+			'object_type' => 1,
+			'link_name' => $key,
+			'width' => 4
+			);
+			$this->db->insert('maps_overlays', $data);
+			$id =  $this->db->insert_id();
+	
+			foreach ($value['coordinates'] as $key => $point)
+			{
+			 $tep_coord =  explode(",", $point);
+			 $a = 0;
+			$data = array(
+			'overlay_id' => $id,
+			'lat' => $tep_coord[1] ,
+			'lng' => $tep_coord[0],
+			'panorama_id' => $value['panorams_id'][$key]
+			);
+			$this->db->insert('overlays_items', $data);
+			
+			}
+
+		}
+/*
+*/
+		}
+	
+
+
 
 
 	echo "Total lines in file: $count, Inserted panorams: $count_insert";

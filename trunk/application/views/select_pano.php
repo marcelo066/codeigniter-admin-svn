@@ -69,15 +69,16 @@
 <br/>
 <?
 echo <<<END
-<<<1:::1.jpeg:::Pano1 Import New:::Pan Adr1:::278:::
-(14.5::Lable Import link1::http://topmedellin.com/panosrc/?panorama_sel=23)<br>
-(167::Lable Import link2::4)>>><br>
-<<<2:::2.jpeg:::Pano2 Import New:::Pan Adr2:::78.5:::
-(80::Lable Import link1::http://topmedellin.com/panosrc/?panorama_sel=38)<br>
-(167::Lable Import link2::1)>>><br>
-<<<3:::3.jpeg:::Pano3 Import New:::Pan Adr3:::25:::
-(92::Lable Import link1::2)>>><br>
-<<<4:::4.jpeg:::Pano4 Import New:::Pan Adr4:::89.1:::>>><br>
+<<<#Panorama:::File name:::Panorama Name:::Panorama Address:::centerHeading:::Arrows(degree::label::panorama link):::KML Phomo name:::Line name>>>
+	<br>
+	<br>
+<<<6:::1.jpeg:::Pano1 Import New:::Pan Adr1:::278:::(14.5::Lable Import link1::http://topmedellin.com/panosrc/?panorama_sel=23)(167::Lable Import link2::7):::P855:::Line1>>><br>
+<<<22:::2.jpeg:::Pano2 Import New:::Pan Adr2:::78.5:::(80::Lable Import link1::http://topmedellin.com/panosrc/?panorama_sel=38)(167::Lable Import link2::6):::P856:::Line1>>><br>
+<<<9:::3.jpeg:::Pano3 Import New:::Pan Adr3:::25:::(92::Lable Import link1::22):::P857:::Line2>>><br>
+<<<7:::4.jpeg:::Pano4 Import New:::Pan Adr4:::89.1:::():::P858:::Line2>>><br>
+<br>
+<br>
+You should call the KML file as description.KML
 END;
 
 ?>

@@ -152,6 +152,7 @@
                 pano: '<?=$panorama_id?>',
                 visible: true,
                 linksControl:true,
+				disableDoubleClickZoom: true,
                 panoProvider: getCustomPanorama,
 				addressControlOptions:
 								{
@@ -237,7 +238,7 @@
 							markers[id].y_gradus = data.markers[n].y_gradus;
 							markers[id].file_id = data.markers[n].file_id;
 
-							main_div.append('<div class="mymarkers" id="'+id+'marker" style="z-index:1000 ; position: absolute;left:'+parseInt(markers[id].x_gradus * wid ) +'px; top:'+parseInt(markers[id].y_gradus * hid )+'px"><div align="center" style="color: red">'+markers[id].name+'</div><div align="center" style="border: solid #D6FF5C";><a href="'+markers[id].link+'"><img style="width: 50px; height: 50px;" src="<?= base_url() ?>uploads/markers/'+markers[id].file+'"></a></div></div>')
+							main_div.append('<div class="mymarkers" id="'+id+'marker" style="z-index:1000 ; position: absolute;left:'+parseInt(markers[id].x_gradus * wid ) +'px; top:'+parseInt(markers[id].y_gradus * hid )+'px"><div align="center" style="color: red">'+markers[id].name+'</div><div align="center"><a href="'+markers[id].link+'"><img style="width: 50px; height: 50px;" src="<?= base_url() ?>uploads/markers/'+markers[id].file+'"></a></div></div>')
 
 							markers[id].obj = $("#"+id+"marker");
 						}

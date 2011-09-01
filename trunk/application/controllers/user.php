@@ -104,7 +104,10 @@ class User extends CI_Controller {
 			$this->load->view('marker',$data);
         }
 
-
+		public function map()
+		{
+			$this->load->view('map');
+		}
 
 }
 

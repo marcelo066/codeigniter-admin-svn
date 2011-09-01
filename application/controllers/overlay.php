@@ -130,7 +130,7 @@ class Overlay extends CI_Controller {
 
 			foreach ($query2->result_array() as $marker)
 			{
-				$markers[] = array ('lat' => $marker['lat'], 'lng' => $marker['lng']);
+				$markers[] = array ('lat' => $marker['lat'], 'lng' => $marker['lng'], 'panorama_id' => $marker['panorama_id']);
 			}
 
 			$overlays[$i]['markers'] = $markers;

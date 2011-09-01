@@ -125,11 +125,12 @@
 
 		var markers_array_post = {};
 		var i = 0;
-		for (var m in markers_array)
+		for (var m in markers_object_array)
 			{
 				markers_array_post[i] = {};
-				markers_array_post[i]['lat']=markers_array[m].lat();
-				markers_array_post[i]['lng']=markers_array[m].lng();
+				markers_array_post[i]['lat']=markers_object_array[m].position.lat();
+				markers_array_post[i]['lng']=markers_object_array[m].position.lng();
+				markers_array_post[i]['panorama_id']=markers_object_array[m].panorama_id;
 				i = i +1;
 			}
 
@@ -226,6 +227,7 @@
 						 for (var k=0; k < data[i].markers.length; k++)
 							 {
 								var myLatlng = new google.maps.LatLng(data[i].markers[k].lat, data[i].markers[k].lng);
+								myLatlng.panorama_id = data[i].markers[k].panorama_id;
 								Latlng_array.push(myLatlng);
 							 }
 
@@ -369,7 +371,8 @@
 				position: location,
 				map: map,
 				draggable:true,
-				ind: ind
+				ind: ind,
+				panorama_id: location.panorama_id
 			});
 
 			markers_array[ind] = marker.position;
@@ -391,6 +394,20 @@
 			regen_overlay();
 
 		});
+
+		google.maps.event.addListener(marker, 'click', function(event)
+		{
+
+		//alert(111);
+		var new_val = prompt('Edit pano ID link',this.panorama_id);
+		if (new_val !=null && new_val !="")
+		  {
+		  this.panorama_id = new_val;
+		  markers_array[this.ind]
+		  }
+		}
+		);
+
 
 		//map.setCenter(location);
 		}

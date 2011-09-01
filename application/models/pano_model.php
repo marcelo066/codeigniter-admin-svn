@@ -58,7 +58,7 @@ class Pano_model extends CI_Model {
 
 					//imageInterlace($im2, 1);
 
-					imagejpeg($im2,"$temp_dir/"."1_{$zoom}_{$i}_{$k}_.jpeg", 50);
+					imagejpeg($im2,"$temp_dir/"."1_{$zoom}_{$i}_{$k}_.jpeg", 90);
 
 					$im2 = null;
 				}
@@ -79,7 +79,7 @@ class Pano_model extends CI_Model {
 
 					//imageInterlace($im2, 1);
 
-					imagejpeg($im2,"$temp_dir/"."1_{$zoom}_{$i}_{$k}_.jpeg", 50);
+					imagejpeg($im2,"$temp_dir/"."1_{$zoom}_{$i}_{$k}_.jpeg", 90);
 
 					$im2 = null;
 				}
@@ -100,7 +100,7 @@ class Pano_model extends CI_Model {
 
 					//imageInterlace($im2, 1);
 
-					imagejpeg($im2,"$temp_dir/"."1_{$zoom}_{$i}_{$k}_.jpeg", 50);
+					imagejpeg($im2,"$temp_dir/"."1_{$zoom}_{$i}_{$k}_.jpeg", 90);
 
 					$im2 = null;
 				}
@@ -121,7 +121,7 @@ class Pano_model extends CI_Model {
 
 					//imageInterlace($im2, 1);
 
-					imagejpeg($im2,"$temp_dir/"."1_{$zoom}_{$i}_{$k}_.jpeg", 50);
+					imagejpeg($im2,"$temp_dir/"."1_{$zoom}_{$i}_{$k}_.jpeg", 90);
 
 					$im2 = null;
 				}
@@ -132,7 +132,7 @@ class Pano_model extends CI_Model {
 
 			imagecopyresized($im2,$im,0,0,0,0, 512,256,$imSX,$imSY);
 
-			imagejpeg($im2,"$temp_dir/"."1_0_0_0_.jpeg", 50);
+			imagejpeg($im2,"$temp_dir/"."1_0_0_0_.jpeg", 90);
 
 
 
